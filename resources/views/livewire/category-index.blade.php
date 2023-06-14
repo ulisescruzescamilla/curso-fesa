@@ -1,6 +1,8 @@
 <div>
     <x-slot name="header">
-        <button class="btn btn-primary">Crear categoría</button>
+        <a href="{{route('categories.create')}}">
+            <button class="btn btn-primary">Crear categoría</button>
+        </a>
     </x-slot>
 
     <div class="py-12">

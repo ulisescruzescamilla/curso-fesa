@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\CategoryCreate;
 use App\Http\Livewire\CategoryIndex;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,5 @@ Route::middleware([
     // verbos en HTTP= GET = mostrar datos, POST = generar datos, PUT/PATCH = editar datos, DELETE = borrar datos
     // vistas resource o livewire
     Route::get('/category', CategoryIndex::class)->name('categories.index');
+    Route::get('/category/create', CategoryCreate::class)->name('categories.create');
 });
