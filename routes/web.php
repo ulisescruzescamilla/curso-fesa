@@ -30,6 +30,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    // verbos en HTTP= GET = mostrar datos, POST = generar datos, PUT/PATCH = editar datos, DELETE = borrar datos
     // vistas resource o livewire
     Route::get('/category', CategoryIndex::class)->name('categories.index');
 });

@@ -1,43 +1,42 @@
-<div class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-        {{-- The best athlete wants his opponent at his best. --}}
-        <div class="overflow-x-auto">
-            <table class="table">
-            <!-- head -->
-            <thead>
-                <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- row 1 -->
-                <tr class="bg-base-200">
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-                </tr>
-                <!-- row 2 -->
-                <tr>
-                <th>2</th>
-                <td>Hart Hagerty</td>
-                <td>Desktop Support Technician</td>
-                <td>Purple</td>
-                </tr>
-                <!-- row 3 -->
-                <tr>
-                <th>3</th>
-                <td>Brice Swyre</td>
-                <td>Tax Accountant</td>
-                <td>Red</td>
-                </tr>
-            </tbody>
-            </table>
+<div>
+    <x-slot name="header">
+        <button class="btn btn-primary">Crear categoría</button>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+            {{-- The best athlete wants his opponent at his best. --}}
+            <div class="overflow-x-auto">
+                <table class="table">
+                <!-- head -->
+                <thead>
+                    <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Fecha de creación</th>
+                    <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($categorias as $categoria)
+                    <tr class="bg-base-200">
+                    <th>{{$categoria->id}}</th>
+                    <td>{{$categoria->name}}</td>
+                    <td>{{$categoria->created_at}}</td>
+                    <td>
+                        {{-- Edit btn --}}
+                        {{-- Delete --}}
+                    </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+            </div>
+            <div>
+                {{$categorias->links()}}
+            </div>
         </div>
-    </div>
+        </div>
     </div>
 </div>
