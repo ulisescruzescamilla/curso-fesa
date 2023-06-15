@@ -5,6 +5,26 @@
         </a>
     </x-slot>
 
+    <x-confirmation-modal wire:model="deleteToggle">
+        <x-slot name="title">
+            {{ __('Borrar categoría') }}
+        </x-slot>
+
+        <x-slot name="content">
+            {{ __('¿Estás seguro de eliminar esta categoría?') }}
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('deleteToggle')" wire:loading.attr="disabled">
+                {{ __('Cancelar') }}
+            </x-secondary-button>
+
+            <x-danger-button class="ml-3" wire:click="delete" wire:loading.attr="disabled">
+                {{ __('Borrar') }}
+            </x-danger-button>
+        </x-slot>
+    </x-confirmation-modal>
+
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
@@ -28,15 +48,15 @@
                     <td>{{$categoria->created_at}}</td>
                     <td>
                         {{-- Edit btn --}}
-                        {{-- TODO add redirection, to edit specific category --}}
-                        {{-- /category/ID/edit --}}
                         <a href="{{
                             route( 'categories.edit', ['category' => $categoria->id] )
                         }}">
                             <i class="cursor-pointer fa-regular fa-pen-to-square"></i>
                         </a>
                         {{-- Delete --}}
-                        <i class="cursor-pointer fa-regular fa-trash-can"></i>
+                        <button wire:click="deleteConfirmation({{$categoria->id}})">
+                            <i class="cursor-pointer fa-regular fa-trash-can"></i>
+                        </button>
                     </td>
                     </tr>
                     @endforeach
