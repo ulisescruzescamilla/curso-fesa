@@ -28,7 +28,15 @@
                     <td>{{$categoria->created_at}}</td>
                     <td>
                         {{-- Edit btn --}}
+                        {{-- TODO add redirection, to edit specific category --}}
+                        {{-- /category/ID/edit --}}
+                        <a href="{{
+                            route( 'categories.edit', ['category' => $categoria->id] )
+                        }}">
+                            <i class="cursor-pointer fa-regular fa-pen-to-square"></i>
+                        </a>
                         {{-- Delete --}}
+                        <i class="cursor-pointer fa-regular fa-trash-can"></i>
                     </td>
                     </tr>
                     @endforeach
