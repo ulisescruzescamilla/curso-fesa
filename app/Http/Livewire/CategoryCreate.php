@@ -27,14 +27,13 @@ class CategoryCreate extends Component
         $this->validate(); // redirecciona automaticamente en caso de error
 
         // save
-        $category = Category::create([
+        Category::create([
             'name' => $this->name
         ]);
 
-        $category->id; // conocer su ID
-
         // muestre un Banner de exito
         // banner con livewire o con jetstream
+        session()->flash('flash.banner', 'Usuario creado con éxito!');
 
         return redirect()->route('categories.index');
     }

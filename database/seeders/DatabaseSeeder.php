@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         //      'email' => 'test@example.com',
         // ]); // genera 1 usuario con nombre 'Test User' y con correo 'test@example.com', las demas columnas, tomalas del factory
 
-        \App\Models\Category::factory(20)->create();
+        \App\Models\Category::factory(25)->create();
     }
 }
